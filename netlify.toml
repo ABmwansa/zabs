@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build:web"
+
+[build.environment]
+  ENABLE_PUBLIC_CMS_LIVE = "false"
+  NEXT_PUBLIC_ENABLE_PAGE_LOAD_OVERLAY = "false"
