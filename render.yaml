@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: zabs-nextjs
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: CMS_PROVIDER
+        value: local
+      - key: ENABLE_PUBLIC_CMS_LIVE
+        value: "false"
+      - key: NEXT_PUBLIC_ENABLE_PAGE_LOAD_OVERLAY
+        value: "false"
+      - key: PAYLOAD_CORS
+        sync: false
+      - key: PAYLOAD_CSRF
+        sync: false
+      - key: PAYLOAD_SECRET
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: PAYLOAD_PUBLIC_SERVER_URL
+        sync: false
