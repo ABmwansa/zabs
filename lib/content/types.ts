@@ -122,6 +122,29 @@ export interface TeamMember {
 
 export type TeamGroup = "board" | "executive" | "directors" | "managers";
 
+export interface TeamPageSection {
+  title: string;
+  description: string;
+  summary?: string;
+}
+
+export interface TeamDirectoryIntro {
+  title: string;
+  description: string;
+  badge: string;
+}
+
+export interface TeamPageContent {
+  boardPage: TeamDirectoryIntro;
+  teamPage: TeamDirectoryIntro;
+  sections: {
+    board: TeamPageSection;
+    executive: TeamPageSection;
+    directors: TeamPageSection;
+    managers: TeamPageSection;
+  };
+}
+
 export interface TeamProfile {
   id: string;
   group: TeamGroup;

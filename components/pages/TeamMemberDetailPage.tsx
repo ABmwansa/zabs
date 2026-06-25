@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Mail, ShieldCheck, UserRound, Users } from "lucide-react";
 
 import PageHeader from "@/components/ui/PageHeader";
-import { getTeamMemberById } from "@/lib/content/team";
+import { getTeamMember } from "@/lib/cms";
+import { getTeamDirectoryLink, getTeamGroupLabel } from "@/lib/content/team";
 
 function PlaceholderAvatar() {
   return (
@@ -16,27 +17,14 @@ function PlaceholderAvatar() {
   );
 }
 
-function getGroupLabel(group: string) {
-  switch (group) {
-    case "board":
-      return "Board of Directors";
-    case "executive":
-      return "Management Team";
-    case "directors":
-      return "Directors";
-    case "managers":
-      return "Managers";
-    default:
-      return "Team";
-  }
-}
-
-export default function TeamMemberDetailPage({ id }: { id: string }) {
-  const member = getTeamMemberById(id);
+export default async function TeamMemberDetailPage({ id }: { id: string }) {
+  const member = await getTeamMember(id);
 
   if (!member) {
     notFound();
   }
+
+  const directoryLink = getTeamDirectoryLink(member.group);
 
   return (
     <>
@@ -45,10 +33,10 @@ export default function TeamMemberDetailPage({ id }: { id: string }) {
         description={member.position}
         breadcrumbs={[
           { label: "About Us", href: "/about" },
-          { label: "Our Team", href: "/our-team" },
+          directoryLink,
           { label: member.name },
         ]}
-        badge={getGroupLabel(member.group)}
+        badge={getTeamGroupLabel(member.group)}
       />
 
       <section className="section-padding bg-[linear-gradient(180deg,#f7fbff_0%,#ffffff_55%,#f6fbff_100%)]">
@@ -72,17 +60,17 @@ export default function TeamMemberDetailPage({ id }: { id: string }) {
 
             <div>
               <Link
-                href="/our-team"
+                href={directoryLink.href}
                 className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
               >
                 <ArrowLeft size={16} />
-                Back to Our Team
+                Back to {directoryLink.label}
               </Link>
 
               <div className="rounded-[2rem] border border-grey-100 bg-white p-8 shadow-[0_22px_60px_-44px_rgba(16,34,53,0.28)]">
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-primary-700">
                   <Users size={12} />
-                  {getGroupLabel(member.group)}
+                  {getTeamGroupLabel(member.group)}
                 </div>
 
                 <h2 className="mt-5 font-heading text-4xl font-black text-grey-900 md:text-5xl">
@@ -98,7 +86,7 @@ export default function TeamMemberDetailPage({ id }: { id: string }) {
                       Team Category
                     </div>
                     <div className="mt-2 text-sm font-semibold text-grey-800">
-                      {getGroupLabel(member.group)}
+                      {getTeamGroupLabel(member.group)}
                     </div>
                   </div>
                   <div className="rounded-[1.5rem] border border-secondary-100 bg-secondary-50 p-5">
@@ -122,15 +110,15 @@ export default function TeamMemberDetailPage({ id }: { id: string }) {
                       </div>
                       <p className="mt-2 text-sm leading-relaxed text-grey-600">
                         {member.summary ??
-                          `${member.name} serves within the ${getGroupLabel(member.group)} of ZABS, supporting institutional leadership, governance, quality systems, and public service delivery.`}
+                          `${member.name} serves within the ${getTeamGroupLabel(member.group)} of ZABS, supporting institutional leadership, governance, quality systems, and public service delivery.`}
                       </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <Link href="/our-team" className="btn-primary">
-                    View More Team Members
+                  <Link href={directoryLink.href} className="btn-primary">
+                    {member.group === "board" ? "View More Board Members" : "View More Team Members"}
                   </Link>
                   <Link
                     href="/contact"

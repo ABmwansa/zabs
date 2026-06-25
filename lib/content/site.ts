@@ -6,6 +6,7 @@ export const mainNavigation: NavItem[] = [
     label: "About Us",
     children: [
       { label: "Who We Are", href: "/about", icon: "users" },
+      { label: "Board of Directors", href: "/board", icon: "users" },
       { label: "Our Team", href: "/our-team", icon: "users" },
       { label: "History & Legislation", href: "/history", icon: "history" },
     ],
@@ -61,6 +62,7 @@ export const siteSettings: SiteSettings = {
       title: "About Us",
       links: [
         { label: "Who We Are", href: "/about" },
+        { label: "Board of Directors", href: "/board" },
         { label: "History & Legislation", href: "/history" },
         { label: "Our Team", href: "/our-team" },
         { label: "Careers", href: "/careers" },

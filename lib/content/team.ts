@@ -1,9 +1,18 @@
-import type { TeamGroup, TeamProfile } from "@/lib/content/types";
+import type { LinkItem, TeamGroup, TeamPageContent, TeamProfile } from "@/lib/content/types";
 
-export const teamPageContent = {
-  title: "Meet our Board and Management",
-  description:
-    "Meet our leadership and staff, who are dedicated to helping you achieve compliance, ensure quality, and promote the sustainability of our nation's industries.",
+export const teamPageContent: TeamPageContent = {
+  boardPage: {
+    title: "Meet our Board of Directors",
+    description:
+      "Meet the board members who provide strategic direction, governance, and oversight for ZABS.",
+    badge: "Board Of Directors",
+  },
+  teamPage: {
+    title: "Meet our Team",
+    description:
+      "Meet our leadership and staff, who are dedicated to helping you achieve compliance, ensure quality, and promote the sustainability of our nation's industries.",
+    badge: "Management And Staff",
+  },
   sections: {
     board: {
       title: "Board of Directors",
@@ -147,4 +156,27 @@ export function getTeamMembersByGroup(group: TeamGroup) {
 
 export function getTeamMemberById(id: string) {
   return teamMembers.find((member) => member.id === id);
+}
+
+export function getTeamGroupLabel(group: TeamGroup) {
+  switch (group) {
+    case "board":
+      return "Board of Directors";
+    case "executive":
+      return "Management Team";
+    case "directors":
+      return "Directors";
+    case "managers":
+      return "Managers";
+    default:
+      return "Team";
+  }
+}
+
+export function getTeamDirectoryLink(group: TeamGroup): LinkItem {
+  if (group === "board") {
+    return { label: "Board of Directors", href: "/board" };
+  }
+
+  return { label: "Our Team", href: "/our-team" };
 }
