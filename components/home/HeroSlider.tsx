@@ -240,11 +240,11 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
                     />
                     <div className="absolute inset-[1px] rounded-[calc(1.55rem-1px)] border border-white/10" />
                     <div className="relative z-10">
-                      <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/80">
+                      <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-orange-200">
                         {index === 0 ? "Institutional Scale" : "Trusted Delivery"}
                       </div>
-                      <CountUpValue value={stat.value} className="mt-2 text-xl font-black text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.3)]" />
-                      <div className="mt-1 text-xs leading-relaxed text-white/78">{stat.label}</div>
+                      <CountUpValue value={stat.value} className="mt-2 text-xl font-black text-orange-300 [text-shadow:0_1px_12px_rgba(0,0,0,0.3)]" />
+                      <div className="mt-1 text-xs leading-relaxed text-orange-100/90">{stat.label}</div>
                     </div>
                   </div>
                 ))}
