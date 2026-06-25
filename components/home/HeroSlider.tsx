@@ -227,24 +227,24 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
                     key={`hero-panel-stat-${index}`}
                     className={`group relative overflow-hidden rounded-[1.55rem] border px-4 py-4 text-left backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-1 ${
                       index === 0
-                        ? "border-white/20 bg-white/[0.16] shadow-[0_26px_58px_-34px_rgba(0,0,0,0.48)]"
-                        : "mt-6 border-primary-100/25 bg-primary-200/[0.16] shadow-[0_26px_58px_-34px_rgba(0,143,213,0.34)]"
+                        ? "border-white/16 bg-slate-950/28 shadow-[0_26px_58px_-34px_rgba(0,0,0,0.48)]"
+                        : "mt-6 border-primary-100/18 bg-primary-950/30 shadow-[0_26px_58px_-34px_rgba(0,143,213,0.34)]"
                     }`}
                   >
-                    <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.08)_38%,rgba(255,255,255,0.03)_100%)]" />
-                    <div className="absolute inset-x-3 top-2 h-10 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.26),rgba(255,255,255,0.02))] blur-md" />
+                    <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.16)_0%,rgba(255,255,255,0.07)_34%,rgba(255,255,255,0.02)_100%)]" />
+                    <div className="absolute inset-x-3 top-2 h-10 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.01))] blur-md" />
                     <div
                       className={`absolute -right-8 -bottom-8 h-24 w-24 rounded-full blur-2xl ${
-                        index === 0 ? "bg-white/14" : "bg-primary-100/22"
+                        index === 0 ? "bg-white/10" : "bg-primary-200/18"
                       }`}
                     />
                     <div className="absolute inset-[1px] rounded-[calc(1.55rem-1px)] border border-white/10" />
-                    <div className="relative">
-                    <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/58">
-                      {index === 0 ? "Institutional Scale" : "Trusted Delivery"}
-                    </div>
-                    <CountUpValue value={stat.value} className="mt-2 text-xl font-black text-white" />
-                    <div className="mt-1 text-xs leading-relaxed text-white/[0.68]">{stat.label}</div>
+                    <div className="relative z-10">
+                      <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/80">
+                        {index === 0 ? "Institutional Scale" : "Trusted Delivery"}
+                      </div>
+                      <CountUpValue value={stat.value} className="mt-2 text-xl font-black text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.3)]" />
+                      <div className="mt-1 text-xs leading-relaxed text-white/78">{stat.label}</div>
                     </div>
                   </div>
                 ))}
