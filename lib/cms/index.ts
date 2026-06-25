@@ -31,6 +31,9 @@ export const getStandardsDevelopmentPageContent = serverProvider.getStandardsDev
 export const getTestingPageContent = serverProvider.getTestingPageContent;
 export const getTermsPageContent = serverProvider.getTermsPageContent;
 export const getTrainingPageContent = serverProvider.getTrainingPageContent;
+export const getTeamPageContent = serverProvider.getTeamPageContent;
+export const getTeamMembers = serverProvider.getTeamMembers;
+export const getTeamMember = serverProvider.getTeamMember;
 
 // Export CMS-facing content types from the facade so route/components depend on
 // stable shapes instead of importing local content modules directly.
@@ -54,4 +57,6 @@ export type SiteSettingsContent = Awaited<ReturnType<typeof getSiteSettings>>;
 export type StandardsDevelopmentPageContent = Awaited<ReturnType<typeof getStandardsDevelopmentPageContent>>;
 export type TermsPageContent = Awaited<ReturnType<typeof getTermsPageContent>>;
 export type TestingPageContent = Awaited<ReturnType<typeof getTestingPageContent>>;
+export type TeamPageContent = Awaited<ReturnType<typeof getTeamPageContent>>;
+export type TeamProfileContent = Awaited<ReturnType<typeof getTeamMembers>>[number];
 export type TrainingPageContent = Awaited<ReturnType<typeof getTrainingPageContent>>;

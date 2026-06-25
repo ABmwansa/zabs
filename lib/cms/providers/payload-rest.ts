@@ -12,8 +12,15 @@ import {
   homeServices,
   homeStats,
 } from "@/lib/content/home-page";
-import { mainNavigation, siteSettings as localSiteSettings } from "@/lib/content/site";
-import type { HeroSlide, SiteSettings as SiteSettingsContent } from "@/lib/content/types";
+import { teamMembers as localTeamMembers, teamPageContent as localTeamPageContent } from "@/lib/content/team";
+import { siteSettings as localSiteSettings } from "@/lib/content/site";
+import type {
+  HeroSlide,
+  SiteSettings as SiteSettingsContent,
+  TeamGroup,
+  TeamPageContent,
+  TeamProfile,
+} from "@/lib/content/types";
 
 import * as localProvider from "./local";
 
@@ -59,6 +66,17 @@ type PayloadHomePageResponse = {
   ctaDescription?: string | null;
 };
 
+type PayloadTeamResponse = {
+  docs?: Array<{
+    slug?: string | null;
+    fullName?: string | null;
+    position?: string | null;
+    teamGroup?: TeamGroup | null;
+    shortBio?: string | null;
+    profilePhoto?: PayloadMediaAsset | null;
+  }> | null;
+};
+
 const platformIconClassMap = {
   facebook: "fab fa-facebook-f",
   x: "fab fa-twitter",
@@ -91,6 +109,14 @@ const buildPublicCmsUrl = (pathname: string, searchParams?: Record<string, strin
   return url.toString();
 };
 
+const normalizeSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-");
+
 const fetchPublicGlobal = async <TResponse>(
   slug: string,
   revalidateSeconds = 60,
@@ -100,6 +126,29 @@ const fetchPublicGlobal = async <TResponse>(
       buildPublicCmsUrl(`/api/globals/${slug}`, {
         depth: "1",
       }),
+      {
+        next: { revalidate: revalidateSeconds },
+      },
+    );
+
+    if (!response.ok) {
+      return null;
+    }
+
+    return (await response.json()) as TResponse;
+  } catch {
+    return null;
+  }
+};
+
+const fetchPublicCollection = async <TResponse>(
+  slug: string,
+  searchParams?: Record<string, string>,
+  revalidateSeconds = 60,
+): Promise<TResponse | null> => {
+  try {
+    const response = await fetch(
+      buildPublicCmsUrl(`/api/${slug}`, searchParams),
       {
         next: { revalidate: revalidateSeconds },
       },
@@ -255,6 +304,52 @@ const getRemoteHomePage = cache(async () => {
   };
 });
 
+const normalizeTeamMembers = (payloadTeam: PayloadTeamResponse | null): TeamProfile[] => {
+  if (!payloadTeam?.docs?.length) {
+    return localTeamMembers;
+  }
+
+  const normalizedMembers = payloadTeam.docs.flatMap((member) => {
+    if (!member?.fullName || !member.position || !member.teamGroup) {
+      return [];
+    }
+
+    return [
+      {
+        id: member.slug?.trim() || normalizeSlug(member.fullName),
+        group: member.teamGroup,
+        name: member.fullName,
+        position: member.position,
+        image: member.profilePhoto?.url || null,
+        placeholderIcon: member.profilePhoto?.url ? undefined : "user",
+        summary: member.shortBio || undefined,
+      } satisfies TeamProfile,
+    ];
+  });
+
+  return normalizedMembers.length > 0 ? normalizedMembers : localTeamMembers;
+};
+
+const getRemoteTeamMembers = cache(async () => {
+  const team = await fetchPublicCollection<PayloadTeamResponse>(
+    "team",
+    {
+      depth: "1",
+      limit: "100",
+      sort: "displayOrder",
+      "where[isActive][equals]": "true",
+    },
+  );
+
+  return normalizeTeamMembers(team);
+});
+
+const getRemoteTeamMember = cache(async (id: string) => {
+  const members = await getRemoteTeamMembers();
+
+  return members.find((member) => member.id === id) || null;
+});
+
 export const getSiteSettings = getRemoteSiteSettings;
 export const getMainNavigation = localProvider.getMainNavigation;
 export const getSiteChrome = cache(async () => ({
@@ -281,3 +376,6 @@ export const getStandardsDevelopmentPageContent = localProvider.getStandardsDeve
 export const getTestingPageContent = localProvider.getTestingPageContent;
 export const getTermsPageContent = localProvider.getTermsPageContent;
 export const getTrainingPageContent = localProvider.getTrainingPageContent;
+export const getTeamPageContent = cache(async (): Promise<TeamPageContent> => localTeamPageContent);
+export const getTeamMembers = getRemoteTeamMembers;
+export const getTeamMember = getRemoteTeamMember;

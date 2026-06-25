@@ -30,6 +30,7 @@ import {
   trainingPageContent,
 } from "@/lib/content/service-pages";
 import { mainNavigation, siteSettings } from "@/lib/content/site";
+import { getTeamMemberById, teamMembers, teamPageContent } from "@/lib/content/team";
 
 // Pure local provider for the standalone frontend app.
 // Remote Payload reads can be added later through a separate HTTP-backed provider.
@@ -76,3 +77,6 @@ export const getStandardsDevelopmentPageContent = cache(async () => standardsDev
 export const getTestingPageContent = cache(async () => testingPageContent);
 export const getTermsPageContent = cache(async () => termsPageContent);
 export const getTrainingPageContent = cache(async () => trainingPageContent);
+export const getTeamPageContent = cache(async () => teamPageContent);
+export const getTeamMembers = cache(async () => teamMembers);
+export const getTeamMember = cache(async (id: string) => getTeamMemberById(id) ?? null);
