@@ -71,25 +71,35 @@ function HomePhotoGallerySection({
   return (
     <section className={`section-padding ${backgroundClassName}`}>
       <div className="container-custom">
-        <div className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,26rem)] lg:items-end">
+        <div className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,24rem)] lg:items-end">
           <div className="max-w-3xl">
             <div className="section-badge mb-4">{badge}</div>
             <h2 className="section-title mb-4">{title}</h2>
             <p className="section-subtitle !mx-0 max-w-2xl">{description}</p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-white/70 bg-white/88 p-6 shadow-[0_24px_60px_-40px_rgba(16,34,53,0.2)] backdrop-blur-sm">
-            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary-700">Visual Identity</div>
+          <div className="rounded-[1.9rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(244,249,254,0.94)_100%)] p-6 shadow-[0_28px_70px_-44px_rgba(16,34,53,0.24)]">
+            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary-700">Visual Standard</div>
             <p className="mt-3 text-sm leading-relaxed text-grey-600">
-              Strong photography makes the homepage feel active, credible, and more representative of real ZABS work.
+              Cleaner presentation, restrained copy, and stronger photography give the homepage a more polished institutional feel.
             </p>
+            <div className="mt-5 grid grid-cols-2 gap-3 text-left">
+              <div className="rounded-2xl border border-white/80 bg-white/90 px-4 py-4">
+                <div className="text-2xl font-black text-grey-900">05</div>
+                <div className="mt-1 text-[11px] font-bold uppercase tracking-[0.16em] text-grey-500">Curated Frames</div>
+              </div>
+              <div className="rounded-2xl border border-white/80 bg-white/90 px-4 py-4">
+                <div className="text-2xl font-black text-grey-900">01</div>
+                <div className="mt-1 text-[11px] font-bold uppercase tracking-[0.16em] text-grey-500">Visual Story</div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-12 xl:auto-rows-[13rem]">
           {items.map((item, index) => (
             <Reveal key={`${badge}-${item.src}`} delay={index * 70} className={layoutClasses[index] || "xl:col-span-4"}>
-              <div className="group relative h-full min-h-[18rem] overflow-hidden rounded-[1.8rem] border border-white/70 bg-white shadow-[0_26px_70px_-44px_rgba(16,34,53,0.28)]">
+              <div className="group relative h-full min-h-[18rem] overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-[0_30px_90px_-48px_rgba(16,34,53,0.3)] ring-1 ring-slate-950/[0.03]">
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -98,12 +108,8 @@ function HomePhotoGallerySection({
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   style={{ objectPosition: item.position || "center center" }}
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,28,44,0.06)_0%,rgba(10,28,44,0.28)_55%,rgba(10,28,44,0.74)_100%)]" />
-                <div className="absolute inset-x-4 top-4">
-                  <span className="inline-flex rounded-full border border-white/18 bg-slate-950/22 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
-                    {item.title}
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,27,43,0.04)_0%,rgba(8,27,43,0.14)_56%,rgba(8,27,43,0.34)_100%)]" />
+                <div className="pointer-events-none absolute inset-[1px] rounded-[calc(2rem-1px)] border border-white/18" />
               </div>
             </Reveal>
           ))}
@@ -133,17 +139,17 @@ function ServicesSection({ services }: { services: HomePageContent["services"] }
             </p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-white/70 bg-white/90 p-6 shadow-[0_28px_70px_-42px_rgba(16,34,53,0.35)] backdrop-blur-sm">
-            <div className="text-[11px] font-bold uppercase tracking-[0.24em] text-primary-700">Integrated Service Platform</div>
+          <div className="rounded-[1.9rem] border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(246,250,254,0.94)_100%)] p-6 shadow-[0_28px_70px_-42px_rgba(16,34,53,0.25)]">
+            <div className="text-[11px] font-bold uppercase tracking-[0.24em] text-primary-700">Institutional Platform</div>
             <p className="mt-3 text-sm leading-relaxed text-grey-600">
-              Structured services for regulators, businesses, exporters, manufacturers, and the general public.
+              Structured service lines for regulators, manufacturers, exporters, and the wider public.
             </p>
             <div className="mt-5 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl bg-primary-50 px-4 py-4">
+              <div className="rounded-2xl border border-primary-100/70 bg-white px-4 py-4">
                 <div className="text-2xl font-black font-heading text-primary-700">{services.length}</div>
-                <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary-700/75">Core Service Areas</div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary-700/75">Service Pillars</div>
               </div>
-              <div className="rounded-2xl bg-secondary-50 px-4 py-4">
+              <div className="rounded-2xl border border-secondary-100/70 bg-white px-4 py-4">
                 <div className="text-2xl font-black font-heading text-secondary-700">40+</div>
                 <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-secondary-700/75">Years of Delivery</div>
               </div>
@@ -206,7 +212,7 @@ function ServicesSection({ services }: { services: HomePageContent["services"] }
                               : "bg-secondary-50 text-secondary-700"
                         }`}
                       >
-                        Institutional Service
+                        Service Line
                       </span>
                       <div className={`inline-flex items-center gap-2 text-sm font-semibold ${isFeatured ? "text-white" : "text-primary-700"}`}>
                         {service.label} <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
@@ -339,7 +345,7 @@ function AboutSection({ aboutSection }: { aboutSection: HomePageContent["aboutSe
 
 function StatsSection({ stats }: { stats: HomePageContent["stats"] }) {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfe_100%)]">
       <div className="container-custom">
         <div className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,28rem)] lg:items-end">
           <div className="max-w-3xl">
@@ -352,10 +358,10 @@ function StatsSection({ stats }: { stats: HomePageContent["stats"] }) {
             </p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-primary-100 bg-gradient-to-br from-primary-50 to-white p-6">
+          <div className="rounded-[1.9rem] border border-primary-100 bg-gradient-to-br from-white to-primary-50/70 p-6 shadow-[0_22px_60px_-44px_rgba(16,34,53,0.18)]">
             <div className="text-[11px] font-bold uppercase tracking-[0.24em] text-primary-700">Performance Snapshot</div>
             <p className="mt-3 text-sm leading-relaxed text-grey-600">
-              Standards development, certification, laboratories, and training presented in a single visible story.
+              National delivery expressed through standards, certification, laboratories, and capacity building.
             </p>
           </div>
         </div>
@@ -374,7 +380,7 @@ function StatsSection({ stats }: { stats: HomePageContent["stats"] }) {
                       ? "xl:col-span-2 border-primary-200 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500 text-white shadow-[0_26px_70px_-38px_rgba(0,131,211,0.55)]"
                       : isDark
                         ? "border-primary-200 bg-gradient-to-br from-primary-600 to-primary-500 text-white"
-                        : "border-grey-100 bg-white hover:-translate-y-1.5 hover:border-primary-200 hover:shadow-[0_26px_70px_-42px_rgba(16,34,53,0.28)]"
+                      : "border-white/90 bg-white hover:-translate-y-1.5 hover:border-primary-200 hover:shadow-[0_26px_70px_-42px_rgba(16,34,53,0.22)]"
                   }`}
                 >
                   <div className="absolute inset-0 pointer-events-none">
@@ -422,11 +428,11 @@ function CertificationSection({ certificationSection }: { certificationSection: 
               <ShieldCheck size={12} /> Certification
             </div>
             <h2 className="section-title mb-5">{certificationSection.title}</h2>
-            <p className="max-w-2xl text-grey-600 leading-relaxed">{certificationSection.description}</p>
+            <p className="max-w-2xl leading-relaxed text-grey-600">{certificationSection.description}</p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               {certificationSection.categories.slice(0, 6).map((category) => (
-                <div key={category} className="rounded-full border border-primary-100 bg-white px-4 py-2 text-sm font-semibold text-grey-700 shadow-sm">
+                <div key={category} className="rounded-full border border-primary-100 bg-white px-4 py-2 text-sm font-semibold text-grey-700 shadow-[0_10px_26px_-22px_rgba(16,34,53,0.28)]">
                   {category}
                 </div>
               ))}
@@ -543,7 +549,7 @@ function AnnouncementsSection({
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
           {featured && (
-            <div className="relative overflow-hidden rounded-[1.9rem] border border-primary-200 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500 p-8 text-white shadow-[0_32px_80px_-42px_rgba(0,131,211,0.55)]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-primary-200 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500 p-8 text-white shadow-[0_32px_80px_-42px_rgba(0,131,211,0.45)]">
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
               </div>
@@ -565,7 +571,7 @@ function AnnouncementsSection({
                   <Link href={featured.href} className="btn-secondary">
                     {featured.label} <ArrowRight size={15} />
                   </Link>
-                  <div className="text-sm text-white/78">Priority institutional update</div>
+                  <div className="text-sm text-white/78">Featured institutional notice</div>
                 </div>
               </div>
             </div>
@@ -579,7 +585,7 @@ function AnnouncementsSection({
               return (
                 <Reveal key={announcement.title} delay={(index + 1) * 90}>
                   <div
-                    className={`rounded-[1.6rem] border p-6 shadow-[0_24px_60px_-40px_rgba(16,34,53,0.2)] ${
+                    className={`rounded-[1.7rem] border p-6 shadow-[0_24px_60px_-40px_rgba(16,34,53,0.16)] ${
                       index === 0 ? "border-grey-100 bg-white" : "border-primary-100 bg-gradient-to-br from-primary-50 to-white"
                     }`}
                   >
@@ -613,7 +619,7 @@ function PartnersSection({ partners }: { partners: HomePageContent["partners"] }
   return (
     <section className="section-padding-sm bg-[linear-gradient(180deg,#f7fbff_0%,#f3f8fd_100%)]">
       <div className="container-custom">
-        <div className="rounded-[2rem] border border-white/80 bg-white/90 px-6 py-8 shadow-[0_24px_60px_-42px_rgba(16,34,53,0.22)] backdrop-blur-sm md:px-8">
+        <div className="rounded-[2.1rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(246,250,254,0.94)_100%)] px-6 py-8 shadow-[0_24px_60px_-42px_rgba(16,34,53,0.16)] md:px-8">
           <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-primary-700">Regional and Global Alignment</p>
@@ -624,16 +630,16 @@ function PartnersSection({ partners }: { partners: HomePageContent["partners"] }
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {partners.map((partner, index) => (
               <div
                 key={partner}
-                className={`rounded-full border px-5 py-3 text-sm font-bold tracking-[0.08em] transition-all ${
+                className={`rounded-[1.25rem] border px-5 py-4 text-sm font-bold tracking-[0.08em] transition-all ${
                   index % 3 === 0
-                    ? "border-primary-100 bg-primary-50 text-primary-700"
+                    ? "border-primary-100 bg-white text-primary-700"
                     : index % 3 === 1
-                      ? "border-secondary-100 bg-secondary-50 text-secondary-700"
-                      : "border-grey-200 bg-grey-50 text-grey-700"
+                      ? "border-secondary-100 bg-white text-secondary-700"
+                      : "border-grey-200 bg-white text-grey-700"
                 }`}
               >
                 {partner}
@@ -708,7 +714,7 @@ function CTASection({
               </Link>
             </div>
 
-            <div className="text-sm text-white/76">Professional support for standards, certification, testing, and training.</div>
+            <div className="text-sm text-white/76">Institutional support for standards, certification, testing, and training.</div>
           </div>
         </div>
       </div>
@@ -732,8 +738,8 @@ export default async function HomePage() {
       <ServicesSection services={homePageContent.services} />
       <HomePhotoGallerySection
         badge="Inside ZABS"
-        title="A homepage that shows real work, not just text."
-        description="Operations, laboratories, standards meetings, and stakeholder engagement give the site a more confident and professional visual presence."
+        title="Institutional work, presented with clarity."
+        description="Laboratories, technical meetings, and stakeholder activity give the homepage a stronger, more credible visual presence."
         items={homeInstitutionalImages}
         backgroundClassName="bg-white"
       />
@@ -746,8 +752,8 @@ export default async function HomePage() {
       />
       <HomePhotoGallerySection
         badge="Programmes & Events"
-        title="Recognition, partnerships, and public moments."
-        description="Campaigns and institutional events add energy to the homepage and make the organisation feel current, visible, and active."
+        title="Public programmes and institutional presence."
+        description="Recognition moments, partnerships, and public events add visibility without crowding the page with unnecessary copy."
         items={homeProgrammeImages}
         backgroundClassName="bg-[linear-gradient(180deg,#f7fbff_0%,#ffffff_100%)]"
       />

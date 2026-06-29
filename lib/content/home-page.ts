@@ -70,7 +70,7 @@ export const homeServices: IconCardItem[] = [
     icon: "bookOpen",
     title: "Standards Development",
     description:
-      "ZABS facilitates the development of national Zambia Standards across all sectors, from food safety to construction.",
+      "ZABS develops and maintains Zambia Standards across sectors ranging from food safety to construction and manufacturing.",
     href: "/standards-development",
     label: "Learn More",
     color: "primary",
@@ -79,7 +79,7 @@ export const homeServices: IconCardItem[] = [
     icon: "flaskConical",
     title: "Testing Laboratories",
     description:
-      "Nine SADCAS-accredited specialist laboratories providing reliable, traceable test results for industry.",
+      "Nine SADCAS-accredited specialist laboratories providing reliable and traceable results for industry and regulators.",
     href: "/testing",
     label: "Learn More",
     color: "secondary",
@@ -88,7 +88,7 @@ export const homeServices: IconCardItem[] = [
     icon: "shieldCheck",
     title: "Certification",
     description:
-      "Product certification, management system certification, SADCAS schemes, EcoMark, and the ZABS Quality Mark.",
+      "Product and management system certification, including SADCAS schemes, EcoMark, and the ZABS Quality Mark.",
     href: "/certification",
     label: "Learn More",
     color: "primary",
@@ -97,7 +97,7 @@ export const homeServices: IconCardItem[] = [
     icon: "graduationCap",
     title: "Training",
     description:
-      "ISO management systems training - ISO 9001, 14001, 45001, 22000, 17025, and 15 more courses.",
+      "ISO management systems training across ISO 9001, 14001, 45001, 22000, 17025, and related programmes.",
     href: "/training",
     label: "Learn More",
     color: "secondary",
@@ -106,7 +106,7 @@ export const homeServices: IconCardItem[] = [
     icon: "fileText",
     title: "Buy Standards",
     description:
-      "Purchase Zambia Standards (ZS) covering every sector. Over 500 titles available in print and PDF.",
+      "Access Zambia Standards across major sectors, with more than 500 titles available in print and PDF.",
     href: "/buy-standards",
     label: "Learn More",
     color: "primary",
@@ -115,7 +115,7 @@ export const homeServices: IconCardItem[] = [
     icon: "award",
     title: "Quality Awards",
     description:
-      "The annual Zambia National Quality Awards recognise exceptional quality and business excellence.",
+      "The Zambia National Quality Awards recognise organisations demonstrating exceptional quality and business excellence.",
     href: "/quality-awards",
     label: "Learn More",
     color: "secondary",
@@ -227,17 +227,17 @@ export const homeAnnouncements: AnnouncementItem[] = [
 export const homeAnnouncementsHeader = {
   title: "News & Opportunities",
   description:
-    "Stay informed about competitions, awards, and career opportunities at ZABS",
+    "Stay informed about competitions, awards, and career opportunities at ZABS.",
   allUpdatesCta: { label: "All Updates", href: "/contact" },
 };
 
 export const homePartners = ["ISO", "ARSO", "SADCAS", "SADCMET", "WTO/TBT", "PASC", "COMESA", "AfCFTA"];
 
 export const homeCtaSection = {
-  eyebrow: "Get Started Today",
-  title: "Ready to Elevate Your Standards?",
+  eyebrow: "Speak With ZABS",
+  title: "Start the right standards conversation.",
   description:
-    "Whether you need certification, laboratory testing, training, or standards information - ZABS is ready to assist your organisation achieve quality excellence.",
+    "Whether you need certification, laboratory testing, training, or standards information, ZABS can guide the next step.",
   primaryCta: { label: "Contact Us", href: "/contact" },
   secondaryCta: { label: "Browse Standards", href: "/buy-standards" },
 };

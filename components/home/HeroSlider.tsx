@@ -111,8 +111,8 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
               <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/[0.84]">{slide.eyebrow}</span>
             </div>
 
-            <div className="ornament-line mb-5 text-[11px] font-bold uppercase tracking-[0.24em] text-primary-100">
-              Modern Standards. Trusted Delivery.
+            <div className="ornament-line mb-5 text-[11px] font-bold uppercase tracking-[0.24em] text-primary-100/80">
+              National Standards Authority
             </div>
 
             <h1 className="mb-6 font-heading text-4xl font-black leading-[0.98] tracking-[-0.06em] text-white animate-fade-in sm:text-5xl lg:text-6xl xl:text-[4.6rem]">
@@ -141,12 +141,15 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
 
             <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-6 sm:grid-cols-4">
               {statCards.map((stat, index) => (
-                <div key={`hero-stat-${index}`} className="rounded-2xl border border-white/[0.08] bg-white/[0.06] px-4 py-4 text-center backdrop-blur-sm lg:text-left">
+                <div
+                  key={`hero-stat-${index}`}
+                  className="rounded-[1.35rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.11)_0%,rgba(255,255,255,0.06)_100%)] px-4 py-4 text-center backdrop-blur-sm lg:text-left"
+                >
                   <CountUpValue
                     value={stat.value}
                     className="font-heading text-2xl font-black text-white sm:text-3xl"
                   />
-                  <div className="mt-1 text-xs text-primary-100/[0.68]">{stat.label}</div>
+                  <div className="mt-1 text-xs uppercase tracking-[0.14em] text-primary-100/[0.72]">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -180,12 +183,9 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
                     }}
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,28,44,0.2)_0%,rgba(10,28,44,0.58)_62%,rgba(10,28,44,0.88)_100%)]" />
-                  <div className="absolute inset-x-5 top-5 flex items-center justify-between gap-4">
-                    <div className="rounded-full border border-white/18 bg-primary-700/82 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white shadow-lg backdrop-blur-sm">
-                      Institutional Quality
-                    </div>
-                    <div className="rounded-full border border-white/18 bg-white/12 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/88 backdrop-blur-sm">
-                      ZABS Assured
+                  <div className="absolute inset-x-5 top-5 flex items-center justify-start gap-4">
+                    <div className="rounded-full border border-white/18 bg-slate-950/28 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white shadow-lg backdrop-blur-sm">
+                      Institutional Overview
                     </div>
                   </div>
                   <div className="absolute inset-x-6 bottom-6">
@@ -240,11 +240,11 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
                     />
                     <div className="absolute inset-[1px] rounded-[calc(1.55rem-1px)] border border-white/10" />
                     <div className="relative z-10">
-                      <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-orange-200">
+                      <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary-100/76">
                         {index === 0 ? "Institutional Scale" : "Trusted Delivery"}
                       </div>
-                      <CountUpValue value={stat.value} className="mt-2 text-xl font-black text-orange-300 [text-shadow:0_1px_12px_rgba(0,0,0,0.3)]" />
-                      <div className="mt-1 text-xs leading-relaxed text-orange-100/90">{stat.label}</div>
+                      <CountUpValue value={stat.value} className="mt-2 text-xl font-black text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.3)]" />
+                      <div className="mt-1 text-xs leading-relaxed text-primary-100/86">{stat.label}</div>
                     </div>
                   </div>
                 ))}
