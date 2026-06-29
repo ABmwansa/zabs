@@ -143,21 +143,21 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
               {statCards.map((stat, index) => (
                 <div
                   key={`hero-stat-${index}`}
-                  className="rounded-[1.35rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(8,27,43,0.36)_0%,rgba(8,27,43,0.22)_100%)] px-4 py-4 text-center backdrop-blur-sm lg:text-left"
+                  className="rounded-[1.35rem] border border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.94)_100%)] px-4 py-4 text-center shadow-[0_18px_44px_-28px_rgba(0,63,101,0.72)] lg:text-left"
                 >
                   <CountUpValue
                     value={stat.value}
                     className="font-heading text-2xl font-black text-white sm:text-3xl"
                   />
-                  <div className="mt-1 text-xs uppercase tracking-[0.14em] text-primary-100/[0.82]">{stat.label}</div>
+                  <div className="mt-1 text-xs uppercase tracking-[0.14em] text-white/82">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="relative hidden pb-16 pl-8 lg:block">
-            <div className="absolute left-0 top-10 z-20 w-52 rounded-[1.6rem] border border-white/10 bg-slate-950/44 p-4 text-white shadow-[0_24px_60px_-34px_rgba(0,0,0,0.5)] backdrop-blur-xl">
-              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary-100/86">National Standards Body</div>
+            <div className="absolute left-0 top-10 z-20 w-52 rounded-[1.6rem] border border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.92)_100%)] p-4 text-white shadow-[0_24px_60px_-34px_rgba(0,63,101,0.68)]">
+              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80">National Standards Body</div>
               <div className="mt-3 text-sm font-semibold leading-relaxed text-white/92">
                 Quality, safety, and trust for Zambia.
               </div>
