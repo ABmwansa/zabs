@@ -225,40 +225,38 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
                 {statCards.slice(0, 2).map((stat, index) => (
                   <div
                     key={`hero-panel-stat-${index}`}
-                    className={`group relative overflow-hidden rounded-[1.55rem] border px-4 py-4 text-left backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-1 ${
+                    className={`group relative overflow-hidden rounded-[1.55rem] border px-4 py-4 text-left transition-transform duration-300 hover:-translate-y-1 ${
                       index === 0
-                        ? "border-white/16 bg-slate-950/28 shadow-[0_26px_58px_-34px_rgba(0,0,0,0.48)]"
-                        : "mt-6 border-primary-100/18 bg-primary-950/30 shadow-[0_26px_58px_-34px_rgba(0,143,213,0.34)]"
+                        ? "border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.94)_100%)] shadow-[0_26px_58px_-34px_rgba(0,63,101,0.66)]"
+                        : "mt-6 border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.94)_100%)] shadow-[0_26px_58px_-34px_rgba(0,63,101,0.66)]"
                     }`}
                   >
-                    <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.16)_0%,rgba(255,255,255,0.07)_34%,rgba(255,255,255,0.02)_100%)]" />
-                    <div className="absolute inset-x-3 top-2 h-10 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.01))] blur-md" />
+                    <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.05)_34%,rgba(255,255,255,0.01)_100%)]" />
+                    <div className="absolute inset-x-3 top-2 h-10 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.01))] blur-md" />
                     <div
-                      className={`absolute -right-8 -bottom-8 h-24 w-24 rounded-full blur-2xl ${
-                        index === 0 ? "bg-white/10" : "bg-primary-200/18"
-                      }`}
+                      className="absolute -right-8 -bottom-8 h-24 w-24 rounded-full bg-white/10 blur-2xl"
                     />
                     <div className="absolute inset-[1px] rounded-[calc(1.55rem-1px)] border border-white/10" />
                     <div className="relative z-10">
-                      <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary-100/76">
+                      <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/74">
                         {index === 0 ? "Institutional Scale" : "Trusted Delivery"}
                       </div>
                       <CountUpValue value={stat.value} className="mt-2 text-xl font-black text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.3)]" />
-                      <div className="mt-1 text-xs leading-relaxed text-primary-100/86">{stat.label}</div>
+                      <div className="mt-1 text-xs leading-relaxed text-white/86">{stat.label}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="absolute -bottom-1 left-14 z-20 rounded-[1.4rem] border border-white/70 bg-white/95 px-5 py-4 text-grey-900 shadow-[0_26px_60px_-32px_rgba(0,0,0,0.38)] backdrop-blur-md">
+            <div className="absolute -bottom-1 left-14 z-20 rounded-[1.4rem] border border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.94)_100%)] px-5 py-4 text-white shadow-[0_26px_60px_-32px_rgba(0,63,101,0.68)]">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-[1rem] bg-primary-100">
-                  <Users size={18} className="text-primary-700" />
+                <div className="flex h-11 w-11 items-center justify-center rounded-[1rem] bg-white/14">
+                  <Users size={18} className="text-white" />
                 </div>
                 <div>
-                  <CountUpValue value="150+" className="font-heading text-xl font-black text-grey-900" />
-                  <div className="text-xs font-semibold uppercase tracking-[0.14em] text-grey-500">Certified Products</div>
+                  <CountUpValue value="150+" className="font-heading text-xl font-black text-white" />
+                  <div className="text-xs font-semibold uppercase tracking-[0.14em] text-white/78">Certified Products</div>
                 </div>
               </div>
             </div>
