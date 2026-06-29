@@ -1,4 +1,24 @@
-import type { CollectionConfig } from "payload";
+import type { CollectionBeforeValidateHook, CollectionConfig } from "payload";
+
+import { formatSlug } from "@/payload/utilities/formatSlug";
+
+const setTeamSlug: CollectionBeforeValidateHook = ({ data }) => {
+  if (!data) {
+    return data;
+  }
+
+  const source =
+    typeof data.slug === "string" && data.slug.length > 0
+      ? data.slug
+      : typeof data.fullName === "string"
+        ? data.fullName
+        : "";
+
+  return {
+    ...data,
+    slug: formatSlug(source),
+  };
+};
 
 export const Team: CollectionConfig = {
   slug: "team",
@@ -21,6 +41,9 @@ export const Team: CollectionConfig = {
       "Manage leadership, department contacts, and team profiles shown on the public website.",
   },
   versions: true,
+  hooks: {
+    beforeValidate: [setTeamSlug],
+  },
   fields: [
     {
       type: "tabs",
@@ -39,12 +62,25 @@ export const Team: CollectionConfig = {
                   type: "row",
                   fields: [
                     {
+                      name: "slug",
+                      label: "Profile Slug",
+                      type: "text",
+                      required: true,
+                      unique: true,
+                      index: true,
+                      admin: {
+                        width: "35%",
+                        description: "Clean URL path used for team profile links. It is normalized automatically before save.",
+                        placeholder: "margaret-k-chileshe",
+                      },
+                    },
+                    {
                       name: "fullName",
                       label: "Full Name",
                       type: "text",
                       required: true,
                       admin: {
-                        width: "55%",
+                        width: "40%",
                         description: "Full staff or leadership name displayed on the public site.",
                         placeholder: "Margaret K. Chileshe",
                       },
@@ -63,13 +99,35 @@ export const Team: CollectionConfig = {
                   ],
                 },
                 {
-                  name: "department",
-                  label: "Department",
-                  type: "text",
-                  admin: {
-                    description: "Department or unit the team member belongs to.",
-                    placeholder: "Standards Development",
-                  },
+                  type: "row",
+                  fields: [
+                    {
+                      name: "teamGroup",
+                      label: "Team Group",
+                      type: "select",
+                      required: true,
+                      options: [
+                        { label: "Board of Directors", value: "board" },
+                        { label: "Management Team", value: "executive" },
+                        { label: "Directors", value: "directors" },
+                        { label: "Managers", value: "managers" },
+                      ],
+                      admin: {
+                        width: "45%",
+                        description: "Controls which public section this profile appears in.",
+                      },
+                    },
+                    {
+                      name: "department",
+                      label: "Department",
+                      type: "text",
+                      admin: {
+                        width: "55%",
+                        description: "Department or unit the team member belongs to.",
+                        placeholder: "Standards Development",
+                      },
+                    },
+                  ],
                 },
                 {
                   name: "shortBio",

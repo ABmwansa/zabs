@@ -219,3 +219,79 @@ export const testingLaboratoryImages: ShowcaseImageAsset[] = [
     position: "center 24%",
   },
 ];
+
+export const homeInstitutionalImages: ShowcaseImageAsset[] = [
+  {
+    src: "/images/site/industry.jpg",
+    alt: "Industrial production line representing standards-led manufacturing quality.",
+    title: "Industry",
+    description: "Industrial systems and manufacturing environments supported by standards and conformity assessment.",
+    position: "center 42%",
+  },
+  {
+    src: "/images/site/testing-laboratories-2.jpg",
+    alt: "Laboratory analyst working with automated testing equipment at ZABS.",
+    title: "Laboratory Testing",
+    description: "Technical laboratory capability is one of the strongest visual trust signals on the site.",
+    position: "center 22%",
+  },
+  {
+    src: "/images/site/standards-development-2.jpg",
+    alt: "Technical standards development meeting in progress inside a boardroom.",
+    title: "Standards Development",
+    description: "Standards are built through formal discussion, review, and stakeholder participation.",
+    position: "center 24%",
+  },
+  {
+    src: "/images/site/stakeholder-engagement.jpg",
+    alt: "Official stakeholder engagement with ZABS representatives in a formal indoor setting.",
+    title: "Stakeholder Engagement",
+    description: "Formal engagement imagery helps the institution feel active and credible.",
+    position: "center 18%",
+  },
+  {
+    src: "/images/site/independence-day-1.jpg",
+    alt: "ZABS team members gathered during an institutional celebration.",
+    title: "Institutional Culture",
+    description: "People-focused images make the homepage feel warmer and more public-facing.",
+    position: "center 34%",
+  },
+];
+
+export const homeProgrammeImages: ShowcaseImageAsset[] = [
+  {
+    src: "/images/site/quality-awards-3.jpg",
+    alt: "Recognition ceremony during the Zambia National Quality Awards programme.",
+    title: "Quality Awards",
+    description: "Prestige and public recognition help strengthen the institutional story.",
+    position: "center 30%",
+  },
+  {
+    src: "/images/site/arso-essay-competition-3.jpg",
+    alt: "Winner receiving a prize cheque during the essay competition awards event.",
+    title: "Essay Competition",
+    description: "Real programme photography gives campaign pages more weight and authenticity.",
+    position: "center 20%",
+  },
+  {
+    src: "/images/site/memoranda-of-understanding-2.jpg",
+    alt: "Formal signing ceremony between ZABS and an international counterpart.",
+    title: "Official Partnerships",
+    description: "Agreement-signing moments communicate institutional seriousness and growth.",
+    position: "center 24%",
+  },
+  {
+    src: "/images/site/regional-collaboration-2.jpg",
+    alt: "Regional standards delegates posing at an ARSO collaboration event.",
+    title: "Regional Collaboration",
+    description: "Cross-border partnerships position ZABS within the wider standards ecosystem.",
+    position: "center 18%",
+  },
+  {
+    src: "/images/site/labour-day-2.jpg",
+    alt: "ZABS staff participating in the 2026 Labour Day celebrations.",
+    title: "Public Events",
+    description: "Public participation photography keeps the homepage lively and human.",
+    position: "center 24%",
+  },
+];

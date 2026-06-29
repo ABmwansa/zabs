@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Award,
   ArrowRight,
@@ -26,6 +27,7 @@ import HeroSlider from "@/components/home/HeroSlider";
 import CountUpValue from "@/components/ui/CountUpValue";
 import Reveal from "@/components/ui/Reveal";
 import { getHomePageContent, getSiteSettings } from "@/lib/cms";
+import { homeInstitutionalImages, homeProgrammeImages } from "@/lib/content/site-images";
 
 const homeIconMap = {
   award: Award,
@@ -44,6 +46,72 @@ const homeIconMap = {
 
 type HomePageContent = Awaited<ReturnType<typeof getHomePageContent>>;
 type SiteSettingsContent = Awaited<ReturnType<typeof getSiteSettings>>;
+
+function HomePhotoGallerySection({
+  badge,
+  title,
+  description,
+  items,
+  backgroundClassName,
+}: {
+  badge: string;
+  title: string;
+  description: string;
+  items: typeof homeInstitutionalImages;
+  backgroundClassName: string;
+}) {
+  const layoutClasses = [
+    "xl:col-span-5 xl:row-span-2",
+    "xl:col-span-4",
+    "xl:col-span-3",
+    "xl:col-span-3",
+    "xl:col-span-4",
+  ];
+
+  return (
+    <section className={`section-padding ${backgroundClassName}`}>
+      <div className="container-custom">
+        <div className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,26rem)] lg:items-end">
+          <div className="max-w-3xl">
+            <div className="section-badge mb-4">{badge}</div>
+            <h2 className="section-title mb-4">{title}</h2>
+            <p className="section-subtitle !mx-0 max-w-2xl">{description}</p>
+          </div>
+
+          <div className="rounded-[1.75rem] border border-white/70 bg-white/88 p-6 shadow-[0_24px_60px_-40px_rgba(16,34,53,0.2)] backdrop-blur-sm">
+            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary-700">Visual Identity</div>
+            <p className="mt-3 text-sm leading-relaxed text-grey-600">
+              Strong photography makes the homepage feel active, credible, and more representative of real ZABS work.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-12 xl:auto-rows-[13rem]">
+          {items.map((item, index) => (
+            <Reveal key={`${badge}-${item.src}`} delay={index * 70} className={layoutClasses[index] || "xl:col-span-4"}>
+              <div className="group relative h-full min-h-[18rem] overflow-hidden rounded-[1.8rem] border border-white/70 bg-white shadow-[0_26px_70px_-44px_rgba(16,34,53,0.28)]">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes={index === 0 ? "(min-width: 1280px) 40vw, 100vw" : "(min-width: 1280px) 24vw, (min-width: 768px) 48vw, 100vw"}
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  style={{ objectPosition: item.position || "center center" }}
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,28,44,0.06)_0%,rgba(10,28,44,0.28)_55%,rgba(10,28,44,0.74)_100%)]" />
+                <div className="absolute inset-x-4 top-4">
+                  <span className="inline-flex rounded-full border border-white/18 bg-slate-950/22 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+                    {item.title}
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function ServicesSection({ services }: { services: HomePageContent["services"] }) {
   return (
@@ -662,12 +730,26 @@ export default async function HomePage() {
         organizationName={currentSiteSettings.organizationName}
       />
       <ServicesSection services={homePageContent.services} />
+      <HomePhotoGallerySection
+        badge="Inside ZABS"
+        title="A homepage that shows real work, not just text."
+        description="Operations, laboratories, standards meetings, and stakeholder engagement give the site a more confident and professional visual presence."
+        items={homeInstitutionalImages}
+        backgroundClassName="bg-white"
+      />
       <AboutSection aboutSection={homePageContent.aboutSection} />
       <StatsSection stats={homePageContent.stats} />
       <CertificationSection certificationSection={homePageContent.certificationSection} />
       <AnnouncementsSection
         announcements={homePageContent.announcements}
         announcementsHeader={homePageContent.announcementsHeader}
+      />
+      <HomePhotoGallerySection
+        badge="Programmes & Events"
+        title="Recognition, partnerships, and public moments."
+        description="Campaigns and institutional events add energy to the homepage and make the organisation feel current, visible, and active."
+        items={homeProgrammeImages}
+        backgroundClassName="bg-[linear-gradient(180deg,#f7fbff_0%,#ffffff_100%)]"
       />
       <PartnersSection partners={homePageContent.partners} />
       <CTASection ctaSection={homePageContent.ctaSection} siteSettings={currentSiteSettings} />

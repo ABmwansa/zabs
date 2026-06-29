@@ -1,7 +1,9 @@
 import TeamMemberDetailPage from "@/components/pages/TeamMemberDetailPage";
-import { teamMembers } from "@/lib/content/team";
+import { getTeamMembers } from "@/lib/cms";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const teamMembers = await getTeamMembers();
+
   return teamMembers.map((member) => ({ id: member.id }));
 }
 

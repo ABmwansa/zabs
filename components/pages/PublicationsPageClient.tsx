@@ -79,6 +79,9 @@ export default function PublicationsPageClient({ content }: PublicationsPageClie
   };
 
   const hasFilters = search || year !== "All Years";
+  const getPublicationActionHref = (publication: (typeof publications)[number]) =>
+    publication.href ?? `mailto:info@zabs.org.zm?subject=Download Request: ${publication.title}`;
+  const isDirectDownload = (publication: (typeof publications)[number]) => Boolean(publication.href);
 
   return (
     <>
@@ -229,7 +232,9 @@ export default function PublicationsPageClient({ content }: PublicationsPageClie
                           <span>{publication.size}</span>
                         </div>
                         <a
-                          href={`mailto:info@zabs.org.zm?subject=Download Request: ${publication.title}`}
+                          href={getPublicationActionHref(publication)}
+                          target={isDirectDownload(publication) ? "_blank" : undefined}
+                          rel={isDirectDownload(publication) ? "noreferrer" : undefined}
                           className="inline-flex items-center gap-1.5 rounded-lg bg-white/20 px-3 py-1.5 text-sm font-semibold transition-all hover:bg-white/30"
                         >
                           <Download size={14} /> Download
@@ -346,7 +351,9 @@ export default function PublicationsPageClient({ content }: PublicationsPageClie
                       </div>
 
                       <a
-                        href={`mailto:info@zabs.org.zm?subject=Download Request: ${publication.title}`}
+                        href={getPublicationActionHref(publication)}
+                        target={isDirectDownload(publication) ? "_blank" : undefined}
+                        rel={isDirectDownload(publication) ? "noreferrer" : undefined}
                         className="inline-flex flex-shrink-0 items-center gap-2 rounded-xl bg-primary-50 px-4 py-2 text-sm font-semibold text-primary-700 transition-all hover:bg-primary-100"
                       >
                         <Download size={14} />
