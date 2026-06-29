@@ -163,12 +163,12 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
               </div>
             </div>
 
-            <div className="panel-glass relative z-10 overflow-hidden rounded-[2.2rem] p-7 shadow-[0_35px_80px_-36px_rgba(0,0,0,0.52)]">
-              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04))]" />
+            <div className="panel-glass relative z-10 overflow-hidden rounded-[2.2rem] border border-[#66c8ee]/18 bg-[linear-gradient(145deg,rgba(0,63,101,0.92),rgba(0,106,160,0.82))] p-7 shadow-[0_35px_80px_-36px_rgba(0,63,101,0.62)]">
+              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]" />
               <div className="absolute -top-4 -right-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#008FD5] shadow-lg animate-float">
                 <ShieldCheck size={32} className="text-white" />
               </div>
-              <div className="relative overflow-hidden rounded-[1.8rem] border border-white/[0.15] bg-gradient-to-br from-white/92 via-primary-50 to-secondary-50 shadow-[0_20px_46px_-32px_rgba(0,0,0,0.5)]">
+              <div className="relative overflow-hidden rounded-[1.8rem] border border-[#66c8ee]/22 bg-[linear-gradient(145deg,rgba(0,106,160,0.96),rgba(0,143,213,0.82))] shadow-[0_20px_46px_-32px_rgba(0,63,101,0.58)]">
                 <div className="relative aspect-[1.02] overflow-hidden">
                   <Image
                     key={`hero-panel-image-${current}-${backgroundImageSrc}`}
