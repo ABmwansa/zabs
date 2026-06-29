@@ -143,7 +143,7 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
               {statCards.map((stat, index) => (
                 <div
                   key={`hero-stat-${index}`}
-                  className="rounded-[1.35rem] border border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.94)_100%)] px-4 py-4 text-center shadow-[0_18px_44px_-28px_rgba(0,63,101,0.72)] lg:text-left"
+                  className="rounded-[1.35rem] border border-[#9adcf5]/28 bg-[linear-gradient(135deg,rgba(0,106,160,0.48)_0%,rgba(0,143,213,0.36)_100%)] px-4 py-4 text-center shadow-[0_18px_44px_-28px_rgba(0,63,101,0.58)] backdrop-blur-xl lg:text-left"
                 >
                   <CountUpValue
                     value={stat.value}
@@ -156,19 +156,19 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
           </div>
 
           <div className="relative hidden pb-16 pl-8 lg:block">
-            <div className="absolute left-0 top-10 z-20 w-52 rounded-[1.6rem] border border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.92)_100%)] p-4 text-white shadow-[0_24px_60px_-34px_rgba(0,63,101,0.68)]">
+            <div className="absolute left-0 top-10 z-20 w-52 rounded-[1.6rem] border border-[#9adcf5]/26 bg-[linear-gradient(135deg,rgba(0,106,160,0.5)_0%,rgba(0,143,213,0.34)_100%)] p-4 text-white shadow-[0_24px_60px_-34px_rgba(0,63,101,0.58)] backdrop-blur-xl">
               <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80">National Standards Body</div>
               <div className="mt-3 text-sm font-semibold leading-relaxed text-white/92">
                 Quality, safety, and trust for Zambia.
               </div>
             </div>
 
-            <div className="panel-glass relative z-10 overflow-hidden rounded-[2.2rem] border border-[#66c8ee]/18 bg-[linear-gradient(145deg,rgba(0,63,101,0.92),rgba(0,106,160,0.82))] p-7 shadow-[0_35px_80px_-36px_rgba(0,63,101,0.62)]">
-              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]" />
+            <div className="panel-glass relative z-10 overflow-hidden rounded-[2.2rem] border border-[#9adcf5]/18 bg-[linear-gradient(145deg,rgba(0,63,101,0.5),rgba(0,106,160,0.34))] p-7 shadow-[0_35px_80px_-36px_rgba(0,63,101,0.54)] backdrop-blur-2xl">
+              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03))]" />
               <div className="absolute -top-4 -right-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#008FD5] shadow-lg animate-float">
                 <ShieldCheck size={32} className="text-white" />
               </div>
-              <div className="relative overflow-hidden rounded-[1.8rem] border border-[#66c8ee]/22 bg-[linear-gradient(145deg,rgba(0,106,160,0.96),rgba(0,143,213,0.82))] shadow-[0_20px_46px_-32px_rgba(0,63,101,0.58)]">
+              <div className="relative overflow-hidden rounded-[1.8rem] border border-[#9adcf5]/20 bg-[linear-gradient(145deg,rgba(0,106,160,0.42),rgba(0,143,213,0.24))] shadow-[0_20px_46px_-32px_rgba(0,63,101,0.48)] backdrop-blur-xl">
                 <div className="relative aspect-[1.02] overflow-hidden">
                   <Image
                     key={`hero-panel-image-${current}-${backgroundImageSrc}`}
@@ -227,8 +227,8 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
                     key={`hero-panel-stat-${index}`}
                     className={`group relative overflow-hidden rounded-[1.55rem] border px-4 py-4 text-left transition-transform duration-300 hover:-translate-y-1 ${
                       index === 0
-                        ? "border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.94)_100%)] shadow-[0_26px_58px_-34px_rgba(0,63,101,0.66)]"
-                        : "mt-6 border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.94)_100%)] shadow-[0_26px_58px_-34px_rgba(0,63,101,0.66)]"
+                        ? "border-[#9adcf5]/26 bg-[linear-gradient(135deg,rgba(0,106,160,0.5)_0%,rgba(0,143,213,0.34)_100%)] shadow-[0_26px_58px_-34px_rgba(0,63,101,0.58)] backdrop-blur-xl"
+                        : "mt-6 border-[#9adcf5]/26 bg-[linear-gradient(135deg,rgba(0,106,160,0.5)_0%,rgba(0,143,213,0.34)_100%)] shadow-[0_26px_58px_-34px_rgba(0,63,101,0.58)] backdrop-blur-xl"
                     }`}
                   >
                     <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.05)_34%,rgba(255,255,255,0.01)_100%)]" />
@@ -249,7 +249,7 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
               </div>
             </div>
 
-            <div className="absolute -bottom-1 left-14 z-20 rounded-[1.4rem] border border-[#66c8ee]/25 bg-[linear-gradient(135deg,rgba(0,106,160,0.96)_0%,rgba(0,143,213,0.94)_100%)] px-5 py-4 text-white shadow-[0_26px_60px_-32px_rgba(0,63,101,0.68)]">
+            <div className="absolute -bottom-1 left-14 z-20 rounded-[1.4rem] border border-[#9adcf5]/26 bg-[linear-gradient(135deg,rgba(0,106,160,0.5)_0%,rgba(0,143,213,0.34)_100%)] px-5 py-4 text-white shadow-[0_26px_60px_-32px_rgba(0,63,101,0.58)] backdrop-blur-xl">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-[1rem] bg-white/14">
                   <Users size={18} className="text-white" />
