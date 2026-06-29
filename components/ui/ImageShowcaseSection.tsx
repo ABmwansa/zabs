@@ -6,9 +6,10 @@ import Reveal from "@/components/ui/Reveal";
 type ImageShowcaseSectionProps = {
   badge: string;
   title: string;
-  description: string;
+  description?: string;
   items: ShowcaseImageAsset[];
   backgroundClassName?: string;
+  hideItemCaptions?: boolean;
 };
 
 export default function ImageShowcaseSection({
@@ -17,6 +18,7 @@ export default function ImageShowcaseSection({
   description,
   items,
   backgroundClassName = "bg-white",
+  hideItemCaptions = false,
 }: ImageShowcaseSectionProps) {
   return (
     <section className={`section-padding ${backgroundClassName}`}>
@@ -24,7 +26,7 @@ export default function ImageShowcaseSection({
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="section-badge mx-auto mb-4 w-fit">{badge}</div>
           <h2 className="section-title mb-4">{title}</h2>
-          <p className="section-subtitle">{description}</p>
+          {description ? <p className="section-subtitle">{description}</p> : null}
         </div>
 
         <div className={`grid gap-6 ${items.length === 2 ? "lg:grid-cols-2" : "md:grid-cols-2 xl:grid-cols-3"}`}>
@@ -43,10 +45,12 @@ export default function ImageShowcaseSection({
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,27,43,0.06)_0%,rgba(8,27,43,0.14)_100%)]" />
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-xl font-black text-grey-900">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-grey-600">{item.description}</p>
-                </div>
+                {!hideItemCaptions ? (
+                  <div className="p-6">
+                    <h3 className="text-xl font-black text-grey-900">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-grey-600">{item.description}</p>
+                  </div>
+                ) : null}
               </article>
             </Reveal>
           ))}

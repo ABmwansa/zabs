@@ -74,10 +74,10 @@ export default async function MediaPage() {
 
       <ImageShowcaseSection
         badge="Photo Library"
-        title="Real media assets for campaigns, partnerships, and public updates."
-        description="These photographs are stronger than placeholders because they show actual ZABS activity across events, collaboration, and official engagements."
+        title="Media Gallery"
         items={mediaShowcaseImages}
         backgroundClassName="bg-grey-50"
+        hideItemCaptions
       />
 
       <section className="section-padding bg-grey-50">
