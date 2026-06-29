@@ -2,7 +2,9 @@ import Link from "next/link";
 import PageHeader from "@/components/ui/PageHeader";
 import CountUpValue from "@/components/ui/CountUpValue";
 import Reveal from "@/components/ui/Reveal";
+import ImageShowcaseSection from "@/components/ui/ImageShowcaseSection";
 import { getAboutPageContent } from "@/lib/cms";
+import { aboutCultureImages, pageHeaderImages } from "@/lib/content/site-images";
 import {
   ArrowRight,
   Award,
@@ -43,6 +45,9 @@ export default async function AboutPage() {
         description={aboutPageContent.header.description}
         breadcrumbs={aboutPageContent.header.breadcrumbs}
         badge={aboutPageContent.header.badge}
+        backgroundImageSrc={pageHeaderImages.about.src}
+        backgroundImageAlt={pageHeaderImages.about.alt}
+        backgroundImagePosition={pageHeaderImages.about.position}
       />
 
       <section className="section-padding bg-white">
@@ -135,6 +140,14 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+
+      <ImageShowcaseSection
+        badge="Inside ZABS"
+        title="People, culture, and public engagement."
+        description="These moments make the organisation feel real and public-facing, which helps the site feel more credible and professional."
+        items={aboutCultureImages}
+        backgroundClassName="bg-grey-50"
+      />
 
       <section className="section-padding bg-grey-50">
         <div className="container-custom">

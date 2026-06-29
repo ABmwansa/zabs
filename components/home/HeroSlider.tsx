@@ -73,8 +73,8 @@ export default function HeroSlider({ heroSlides, heroSummaryStats, organizationN
 
   const slide = heroSlides[current];
   const statCards = [...heroSummaryStats, { value: slide.stat.value, label: slide.stat.label }];
-  const backgroundImageSrc = slide.backgroundImage?.url || "/images/zabs-hero-bg.jfif";
-  const backgroundImageAlt = slide.backgroundImage?.alt || slide.headline || "ZABS hero background";
+  const backgroundImageSrc = slide.backgroundImage?.url || "/images/site/industry.jpg";
+  const backgroundImageAlt = slide.backgroundImage?.alt || slide.headline || "ZABS institutional hero background";
   const backgroundPositions = ["78% center", "76% center", "center center", "82% center"];
   const backgroundPosition = backgroundPositions[current] || "center center";
 

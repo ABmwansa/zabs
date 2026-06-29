@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHeader from "@/components/ui/PageHeader";
 import { getContactPageContent } from "@/lib/cms";
+import { pageHeaderImages } from "@/lib/content/site-images";
 import {
   ArrowRight,
   Award,
@@ -52,6 +53,9 @@ export default async function ContactPage() {
         subtitle={contactPageContent.header.subtitle}
         breadcrumbs={contactPageContent.header.breadcrumbs}
         badge={contactPageContent.header.badge}
+        backgroundImageSrc={pageHeaderImages.contact.src}
+        backgroundImageAlt={pageHeaderImages.contact.alt}
+        backgroundImagePosition={pageHeaderImages.contact.position}
       />
 
       <section className="section-padding bg-grey-50">

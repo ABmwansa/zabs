@@ -1,7 +1,9 @@
 import PageHeader from "@/components/ui/PageHeader";
+import ImageShowcaseSection from "@/components/ui/ImageShowcaseSection";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, BookOpen, Users, Globe, FileText, Download, Clock, Zap } from "lucide-react";
 import { getStandardsDevelopmentPageContent } from "@/lib/cms";
+import { pageHeaderImages, standardsDevelopmentImages } from "@/lib/content/site-images";
 
 export default async function StandardsDevelopmentPage() {
   const {
@@ -20,6 +22,9 @@ export default async function StandardsDevelopmentPage() {
         description="ZABS facilitates the development of Zambian National Standards (ZS) across all sectors of the economy, providing the technical foundation for quality and safety."
         breadcrumbs={[{ label: "Standards Development" }]}
         badge="National Standards"
+        backgroundImageSrc={pageHeaderImages.standardsDevelopment.src}
+        backgroundImageAlt={pageHeaderImages.standardsDevelopment.alt}
+        backgroundImagePosition={pageHeaderImages.standardsDevelopment.position}
       />
 
       {/* Introduction Section */}
@@ -88,6 +93,14 @@ export default async function StandardsDevelopmentPage() {
           </div>
         </div>
       </section>
+
+      <ImageShowcaseSection
+        badge="Standards in Practice"
+        title="From formal documentation to technical committee work."
+        description="Standards development is easier to trust when visitors can see the meetings, documents, and technical process behind it."
+        items={standardsDevelopmentImages}
+        backgroundClassName="bg-grey-50"
+      />
 
       {/* Benefits Section */}
       <section className="section-padding bg-grey-50">

@@ -1,8 +1,10 @@
 import PageHeader from "@/components/ui/PageHeader";
+import ImageShowcaseSection from "@/components/ui/ImageShowcaseSection";
 import Reveal from "@/components/ui/Reveal";
 import { AlertCircle, BookOpen, Calendar, CheckCircle, ChevronRight, Clock, FileText, HelpCircle, Mail, PenTool, Sparkles, Star, Target, Trophy, Users } from "lucide-react";
 import Link from "next/link";
 import { getEssayCompetitionPageContent } from "@/lib/cms";
+import { essayCompetitionImages, pageHeaderImages } from "@/lib/content/site-images";
 
 type TimelineStatus = "completed" | "active" | "upcoming";
 
@@ -25,6 +27,9 @@ export default async function EssayCompetitionPage() {
         subtitle="The Role of Harmonized Standards in Reducing Technical Barriers to Trade"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Essay Competition" }]}
         badge="Open for Entries"
+        backgroundImageSrc={pageHeaderImages.essayCompetition.src}
+        backgroundImageAlt={pageHeaderImages.essayCompetition.alt}
+        backgroundImagePosition={pageHeaderImages.essayCompetition.position}
       />
 
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500 py-16 text-white">
@@ -79,6 +84,14 @@ export default async function EssayCompetitionPage() {
           </div>
         </div>
       </section>
+
+      <ImageShowcaseSection
+        badge="Competition Highlights"
+        title="A programme with visible recognition."
+        description="These images help the page feel more credible by showing real participants, prizes, certificates, and public recognition."
+        items={essayCompetitionImages}
+        backgroundClassName="bg-grey-50"
+      />
 
       <section className="section-padding bg-grey-50">
         <div className="container-custom">

@@ -1,8 +1,10 @@
 import PageHeader from "@/components/ui/PageHeader";
+import ImageShowcaseSection from "@/components/ui/ImageShowcaseSection";
 import Reveal from "@/components/ui/Reveal";
 import { Award, Calendar, CheckCircle, ChevronRight, Clock, Globe, Mail, Medal, Phone, Sparkles, Target, Trophy } from "lucide-react";
 import Link from "next/link";
 import { getQualityAwardsPageContent } from "@/lib/cms";
+import { pageHeaderImages, qualityAwardsImages } from "@/lib/content/site-images";
 
 export default async function QualityAwardsPage() {
   const {
@@ -24,6 +26,9 @@ export default async function QualityAwardsPage() {
         subtitle="The 11th Zambia National Quality Awards and Business Forum 2026 - Celebrating Excellence in Quality"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Quality Awards" }]}
         badge="ZAQA 2026"
+        backgroundImageSrc={pageHeaderImages.qualityAwards.src}
+        backgroundImageAlt={pageHeaderImages.qualityAwards.alt}
+        backgroundImagePosition={pageHeaderImages.qualityAwards.position}
       />
 
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500 py-16 text-white">
@@ -78,6 +83,14 @@ export default async function QualityAwardsPage() {
           </div>
         </div>
       </section>
+
+      <ImageShowcaseSection
+        badge="Awards Showcase"
+        title="Recognition that looks as strong as the programme."
+        description="The awards page benefits from real ceremony photography because it signals prestige, professionalism, and public credibility."
+        items={qualityAwardsImages}
+        backgroundClassName="bg-grey-50"
+      />
 
       <section className="section-padding bg-grey-50">
         <div className="container-custom">

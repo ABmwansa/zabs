@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, Home } from "lucide-react";
 
 interface Breadcrumb {
@@ -12,15 +13,39 @@ interface PageHeaderProps {
   description?: string;
   breadcrumbs?: Breadcrumb[];
   badge?: string;
+  backgroundImageSrc?: string;
+  backgroundImageAlt?: string;
+  backgroundImagePosition?: string;
 }
 
-export default function PageHeader({ title, subtitle, description, breadcrumbs, badge }: PageHeaderProps) {
+export default function PageHeader({
+  title,
+  subtitle,
+  description,
+  breadcrumbs,
+  badge,
+  backgroundImageSrc,
+  backgroundImageAlt,
+  backgroundImagePosition,
+}: PageHeaderProps) {
   const sub = subtitle || description;
   const crumbs = breadcrumbs || [];
 
   return (
     <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500 text-white">
       <div className="absolute inset-0 pointer-events-none">
+        {backgroundImageSrc && (
+          <Image
+            src={backgroundImageSrc}
+            alt={backgroundImageAlt || title}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover brightness-[0.34] saturate-[0.86]"
+            style={{ objectPosition: backgroundImagePosition || "center center" }}
+          />
+        )}
+        <div className={`absolute inset-0 ${backgroundImageSrc ? "bg-[linear-gradient(120deg,rgba(0,39,62,0.88)_0%,rgba(0,92,140,0.78)_42%,rgba(0,131,211,0.64)_100%)]" : "bg-transparent"}`} />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.16),transparent_22rem)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(8,152,224,0.2),transparent_20rem)]" />
         <div className="absolute -right-24 top-10 h-72 w-72 rounded-full border border-white/10" />

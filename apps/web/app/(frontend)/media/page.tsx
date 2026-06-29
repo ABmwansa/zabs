@@ -1,7 +1,9 @@
 import PageHeader from "@/components/ui/PageHeader";
+import ImageShowcaseSection from "@/components/ui/ImageShowcaseSection";
 import Reveal from "@/components/ui/Reveal";
 import { Camera, CheckCircle, FileText, Image as ImageIcon, PlayCircle, Radio } from "lucide-react";
 import { getMediaPageContent, getSiteSettings } from "@/lib/cms";
+import { mediaShowcaseImages, pageHeaderImages } from "@/lib/content/site-images";
 
 const mediaIconMap = {
   camera: Camera,
@@ -25,6 +27,9 @@ export default async function MediaPage() {
         description={mediaPageContent.header.description}
         breadcrumbs={mediaPageContent.header.breadcrumbs}
         badge={mediaPageContent.header.badge}
+        backgroundImageSrc={pageHeaderImages.media.src}
+        backgroundImageAlt={pageHeaderImages.media.alt}
+        backgroundImagePosition={pageHeaderImages.media.position}
       />
 
       <section className="section-padding bg-white">
@@ -66,6 +71,14 @@ export default async function MediaPage() {
           </div>
         </div>
       </section>
+
+      <ImageShowcaseSection
+        badge="Photo Library"
+        title="Real media assets for campaigns, partnerships, and public updates."
+        description="These photographs are stronger than placeholders because they show actual ZABS activity across events, collaboration, and official engagements."
+        items={mediaShowcaseImages}
+        backgroundClassName="bg-grey-50"
+      />
 
       <section className="section-padding bg-grey-50">
         <div className="container-custom">

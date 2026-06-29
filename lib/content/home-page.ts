@@ -1,4 +1,5 @@
 import type { AnnouncementItem, HeroSlide, IconCardItem, StatItem } from "@/lib/content/types";
+import { heroImageAssets } from "@/lib/content/site-images";
 
 export const homeHeroSlides: HeroSlide[] = [
   {
@@ -8,8 +9,8 @@ export const homeHeroSlides: HeroSlide[] = [
     subtext:
       "The Zambia Bureau of Standards drives quality, safety, and competitiveness across every sector of Zambia's economy.",
     backgroundImage: {
-      url: "/images/hero/zabs-hero-slide-01.jfif",
-      alt: "ZABS standards guidance in a warehouse environment",
+      url: heroImageAssets.standards.src,
+      alt: heroImageAssets.standards.alt,
     },
     primaryCta: { label: "Get Certified", href: "/certification" },
     secondaryCta: { label: "Explore Standards", href: "/standards-development" },
@@ -22,8 +23,8 @@ export const homeHeroSlides: HeroSlide[] = [
     subtext:
       "Nine specialist laboratories providing ISO/IEC 17025 accredited testing services across chemistry, microbiology, petroleum, solar and more.",
     backgroundImage: {
-      url: "/images/hero/zabs-hero-slide-02.jfif",
-      alt: "ZABS operations and logistics environment",
+      url: heroImageAssets.testing.src,
+      alt: heroImageAssets.testing.alt,
     },
     primaryCta: { label: "Our Laboratories", href: "/testing" },
     secondaryCta: { label: "Submit Samples", href: "/contact" },
@@ -36,8 +37,8 @@ export const homeHeroSlides: HeroSlide[] = [
     subtext:
       "Open to all Zambian university and college students. Win up to K6,500 in cash prizes. Submissions close 31 March 2026.",
     backgroundImage: {
-      url: "/images/hero/zabs-hero-slide-03.jfif",
-      alt: "ZABS technical and industrial standards inspection",
+      url: heroImageAssets.essayCompetition.src,
+      alt: heroImageAssets.essayCompetition.alt,
     },
     primaryCta: { label: "Enter Competition", href: "/essay-competition" },
     secondaryCta: { label: "Learn More", href: "/essay-competition" },
@@ -50,8 +51,8 @@ export const homeHeroSlides: HeroSlide[] = [
     subtext:
       "Nominations open for the 2026 Zambia National Quality Awards and Business Forum - recognising Zambia's quality champions.",
     backgroundImage: {
-      url: "/images/hero/zabs-hero-slide-04.jfif",
-      alt: "ZABS certification presence within a retail environment",
+      url: heroImageAssets.qualityAwards.src,
+      alt: heroImageAssets.qualityAwards.alt,
     },
     primaryCta: { label: "Nominate Now", href: "/quality-awards" },
     secondaryCta: { label: "View Categories", href: "/quality-awards" },

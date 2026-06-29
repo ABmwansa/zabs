@@ -1,8 +1,10 @@
 import PageHeader from "@/components/ui/PageHeader";
+import ImageShowcaseSection from "@/components/ui/ImageShowcaseSection";
 import Reveal from "@/components/ui/Reveal";
 import Link from "next/link";
 import { ArrowRight, FlaskConical, CheckCircle, Microscope, TestTube, Award, Users, Clock, FileText, Phone, Mail, MapPin, Star } from "lucide-react";
 import { getTestingPageContent } from "@/lib/cms";
+import { pageHeaderImages, testingLaboratoryImages } from "@/lib/content/site-images";
 
 export default async function TestingPage() {
   const {
@@ -21,6 +23,9 @@ export default async function TestingPage() {
         description="ZABS Laboratories are equipped with modern equipment and highly competent staff to deliver reliable, accredited testing services."
         breadcrumbs={[{ label: "Testing Laboratories" }]}
         badge="Our Labs"
+        backgroundImageSrc={pageHeaderImages.testing.src}
+        backgroundImageAlt={pageHeaderImages.testing.alt}
+        backgroundImagePosition={pageHeaderImages.testing.position}
       />
 
       {/* Stats Section */}
@@ -138,6 +143,13 @@ export default async function TestingPage() {
           </div>
         </div>
       </section>
+
+      <ImageShowcaseSection
+        badge="Laboratory Gallery"
+        title="Inside our testing environment."
+        description="These images make the testing page more concrete by showing real facilities, instrumentation, and laboratory handling."
+        items={testingLaboratoryImages}
+      />
 
       {/* Client Sectors Section */}
       <section className="section-padding bg-white">
